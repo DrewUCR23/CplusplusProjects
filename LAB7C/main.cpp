@@ -124,7 +124,7 @@ int main() {
         // the iostreams have no effect on moving the strings to the left hand side
         for (int i = 0; i < 9; i++) {
             // keeping the track
-                  cout<<STUDENTN[i]<<left << endl;
+                  cout<<STUDENTN[i]<< endl;
             for (int j = 0; j < 6; j++) {
              cout<<right<< setw(10)<<GRADE[i][j];                
             }

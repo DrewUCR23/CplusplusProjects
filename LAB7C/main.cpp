@@ -124,9 +124,9 @@ int main() {
         // the iostreams have no effect on moving the strings to the left hand side
         for (int i = 0; i < 9; i++) {
             // keeping the track
-                  cout<<STUDENTN[i]<< endl;
+                  cout<<STUDENTN[i];
             for (int j = 0; j < 6; j++) {
-             cout<<right<< setw(10)<<GRADE[i][j];                
+             cout<<right<< setw(10)<<GRADE[i][j]<<endl;                
             }
     }  
         //printing the average for grade

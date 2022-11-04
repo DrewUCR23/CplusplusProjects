@@ -119,9 +119,12 @@ int main() {
         //for loop for finding the the values
        // studentheaders();
         cout<<"\n"<<endl;
+        
+        // this should read the in the pattern of string>>integer>>>string>>integer and pull the information from the multidimensional array 
+        // the iostreams have no effect on moving the strings to the left hand side
         for (int i = 0; i < 9; i++) {
             // keeping the track
-                  cout<<right<<setw(20)<<STUDENTN[i]<<left<<setw(100) << endl;
+                  cout<<STUDENTN[i]<<left << endl;
             for (int j = 0; j < 6; j++) {
              cout<<right<< setw(10)<<GRADE[i][j];                
             }

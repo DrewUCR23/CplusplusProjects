@@ -24,13 +24,13 @@ const int COLS = 6; // Number of assignments
 const int FIELD_WIDTH = 9;
 // spacing for student headers
 const auto F1 = 10;
-const auto F2 = 25;
-const auto F3 = 18;
-const auto F4 = 10;
-const auto F5 = 10;
-const auto F6 = 20;
-const auto F7 = 30;
-const auto F8 = 25;
+const auto F2 = 15;
+const auto F3 = 8;
+const auto F4 = 8;
+const auto F5 = 8;
+const auto F6 = 8;
+const auto F7 = 8;
+const auto F8 = 8;
 //Place Functions or Function Protypes Below
 //displays titles for students and grade info
 
@@ -40,10 +40,10 @@ void studentheaders() {
             << setw(F2) << "Student Name"
             << right
             << setw(F3) << "ASGN-1"
-            << setw(F4) << "ASGN-2" << endl
-    << setw(F5) << "ASGN-3" << endl
-    << setw(F6) << "ASGN-4" << endl
-    << setw(F7) << "ASGN-5" << endl
+            << setw(F4) << "ASGN-2" 
+    << setw(F5) << "ASGN-3" 
+    << setw(F6) << "ASGN-4" 
+    << setw(F7) << "ASGN-5" 
     << setw(F8) << "ASGN-6" << endl;
 }
 
@@ -64,7 +64,6 @@ void studentheaders() {
     }
 }
  */
-
 /* Filename: openInputFile
  * Descritpion: Opens the named input file using the provided 
  * ifstream object. Filename parameter defaults to INPUT_FILENAME
@@ -109,31 +108,20 @@ int main() {
             dataIn>>GRADE[count][C1];
             }
         }
-        
-        //store a second level of string 
-         for (int count =0; count < ROWS; count++) {
-            dataIn>>STUDENT[count];
-        }
-        
- 
         //for loop for finding the the values
-       // studentheaders();
-        cout<<"\n"<<endl;
-        
-        // this should read the in the pattern of string>>integer>>>string>>integer and pull the information from the multidimensional array 
-        // the iostreams have no effect on moving the strings to the left hand side
+        studentheaders();
         for (int i = 0; i < 9; i++) {
             // keeping the track
-                  cout<<STUDENTN[i];
+                  cout<<setw(15)<<STUDENTN[i];
             for (int j = 0; j < 6; j++) {
-             cout<<right<< setw(10)<<GRADE[i][j]<<endl;                
+             cout<<setw(8)<<fixed<<setprecision(1)<<GRADE[i][j];                
             }
+                  cout<<endl;
     }  
-        //printing the average for grade
-        cout << "Class Average:"  << GRADEAVERAGE << endl;
-                //output for the STUDENT DALTA      
+       
+                //output for the STUDENT DALTA    
         // ??? Close the output file.
-        dataIn.close();
+        //dataIn.close();
         // ??? Output the array to the screen as a table using FIELD_WIDTH
         // for each entry using 1 digit of precision.
         // FINDING GRADE AVERAGE
@@ -141,9 +129,11 @@ int main() {
          for (int k = 0; k<COLS; k++) {
              SUM = SUM + GRADE[i][k];
          }
-            cout << "\n" << endl;
         }
-        GRADEAVERAGE = SUM / 9*6;
+        GRADEAVERAGE = SUM / (9*6);
+        cout<<"\n";
+         //printing the average for grade
+        cout << "Class Average:"  << fixed<<setprecision(1)<<GRADEAVERAGE << endl;
     } else
         cout << "Failed to open input file: " << INPUT_FILENAME << ".\n";
     return 0;

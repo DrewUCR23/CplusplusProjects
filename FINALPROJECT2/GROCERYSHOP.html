@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drew's Online Grocery Store</title>
+    <!-- this is where the css style sheet goes-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!--- this code will handle the client side events-->
+    <script type="text/javascript" src="script.js"></script>
+    
+    </head>
+    <body>
+        <header>
+        <h1>Drew's Online Grocery Store</h1>
+    </header>
+
+    <main>
+        <div class="button-container">
+            <button onclick="openTab('login')">Login</button>
+            <button onclick="openTab('register')">Register</button>
+            <button onclick="openTab('changePassword')">Change Password</button>
+            <button onclick="openTab('admin');">Admin Sign</button>
+            <button onclick="openTab('Admin Register')">Admin Register</button>
+            <button onclick="openTab('cart')">Check Cart</button>
+            <button onclick="openTab('receipt')">Receipt</button>
+            <button onclick="openTab('menu')">Menu</button>
+            <!--- this will be the local storage for java which we will redirect you see you can see the stored purchases in the local storage server -->
+            <button onclick="redirectToLocalStorage()">View Local Storage</button>
+
+        </div>
+        <form action="mainshopping.php" method="POST">
+            <input type="hidden" name="userNumber" value="1">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    
+        <section id="register" class="tab">
+            <h2>Register</h2>
+            <form method="POST" action="USER.PHP">
+                <input type="hidden" name="userNumber" value="2">
+                <label for="new_username">Username:</label><br>
+                <input type="text" id="new_username" name="new_username" required><br>
+                <label for="new_password">Password:</label><br>
+                <input type="password" id="new_password" name="new_password" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        
+        <!--- this is where we will change the password accordingly -->
+        <section id="changePassword" class="tab">
+            <h2>Change Password</h2>
+            <form method="POST" action="mainshopping.php">
+                <input type="hidden" name="userNumber" value="3">
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="old_password">Old Password:</label><br>
+                <input type="password" id="old_password" name="old_password"><br>
+                <label for="new_password">New Password:</label><br>
+                <input type="password" id="new_password" name="new_password"><br>
+                <button type="button" style="background-color: #008080; color: white; cursor: pointer; border-radius: 5px;">Change Email</button>
+                <input type="submit" style="background-color: #008080; color: white; cursor: pointer; border-radius: 5px;" value="Submit">
+            </form>
+        </section>
+        <!-- Admin Section -->
+        <section id="admin" class="tab">
+            <h2>Admin Sign</h2>
+            <form method="POST" action="mainshopping.PHP">
+                <input type="hidden" name="userNumber" value="4">
+                <label for="adminUsername">Admin Username:</label><br>
+                <input type="text" id="adminUsername" name="adminUsername"><br>
+                <label for="adminPassword">Admin Password:</label><br>
+                <input type="password" id="adminPassword" name="adminPassword"><br>
+                <input type="submit" value="Submit">
+                    </form>
+                </section>      
+        <section id="Admin Register" class="tab">
+        <h2>Admin Register</h2>
+        <form method="POST" action="MAINSHOPPING.php">
+            <input type="hidden" name="userNumber" value="5">
+            <label for="adminUsernameReg">Create an Admin Username:</label><br>
+            <input type="text" id="adminUsernameReg" name="adminUsernameReg"><br>
+            <label for="adminPasswordReg">Create an Admin Password:</label><br>
+            <input type="password" id="adminPasswordReg" name="adminPasswordReg"><br>
+            <label for="adminEmailReg">Create an Admin Email:</label><br>
+            <input type="email" id="adminEmailReg" name="adminEmailReg"><br>
+        <!---<input type="submit" value="Submit">--> 
+            <button type="submit">Create Account</button>
+        </form>
+        </section>
+    <!-- Admin Options -->
+        <form method="POST" action="MAINSHOPPING.php">
+            <input type="hidden" name="userNumber" value="6">
+            <label for="deleteUsername">Delete User:</label><br>
+            <input type="text" id="deleteUsername" name="deleteUsername"><br>
+            <input type="submit" value="Delete User" class="admin-options"> <!-- Admin Option Button -->
+        </form>
+
+        <form method="POST" action="MAINSHOPPING.php">
+            <input type="hidden" name="userNumber" value="7">
+            <label for="checkpurchases">Check Purchases:</label><br>
+            <input type="text" id="checkpurchases" name="checkpurchases"><br>
+            <input type="submit" value="Check Purchases" class="admin-options"> <!-- Admin Option Button -->
+        </form>
+    </section>
+
+    <section id="cart" class="tab">
+        <h2>Cart</h2>
+        <form method="POST" action="MAINSHOPPING.php" id="checkCartForm">
+            <input type="hidden" name="userNumber" value="8">
+            <input type="hidden" name="action" value="Check Cart"> <!-- Add a hidden input for the action -->
+            <input type="submit" id="checkCartButton" value="Check Cart">
+        </form>
+    </section>
+    
+    <section id="menu" class="tab">
+        <!--the buttons are inside of menu content accordingly -->
+        <h2>Menu</h2>
+        <div id="menuContent"></div>
+    </section>
+        
+        <section id="receipt" class="tab">
+            <h2>Receipt</h2>
+            <form method="POST" action="MAINSHOPPING.php">
+                <input type="hidden" name="userNumber" value="9">
+                <button type="submit">View Receipt</button>
+            </form>
+            <!-- Display receipt details here -->
+        </section>
+         
+
+        <button onclick="openTab('menu')">Menu</button>
+    </main>
+
+    <!--- this will be the event handler for the admin -->
+<script>
+    function toggleForm(formId) {
+        var form = document.getElementById(formId);
+        if (form.style.display === 'none' || form.style.display === '') {
+            form.style.display = 'block';
+        } else {
+            form.style.display = 'none';
+        }
+    }
+</script> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <script> 
+
+//this makes the given code more modular and calls for menu.html next 
+function loadMenu() {
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "menu.html", true);
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("menuContent").innerHTML = xhr.responseText;
+        }
+    };
+    xhr.send();
+}
+
+
+// Call the loadMenu function to load the menu content
+loadMenu();
+
+
+        function sendEvent(event) {
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = 'mainshopping.php';
+
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = 'event';
+            input.value = event;
+
+            form.appendChild(input);
+            document.body.appendChild(form);
+
+            form.submit();
+        }
+   
+        // sends the informatio to local storage accoridngly 
+        function sendCartDataToLocalStorage(event) {
+        event.preventDefault();
+
+        fetch('CHECKSHOPPINGCART.php', {
+            method: 'POST',
+            body: JSON.stringify({
+                // Your add to cart data goes here
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            localStorage.setItem('cartData', JSON.stringify(data));
+            window.location.href = 'GROCERYSHOP.html';
+        })
+        .catch(error => {
+            console.error('An error occurred:', error);
+        });
+    }
+
+    function showAdminButtons() {
+        var adminButtons = document.getElementsByClassName("admin-button");
+        for (var i = 0; i < adminButtons.length; i++) {
+            adminButtons[i].style.display = "inline-block";
+        }
+    }
+
+    function toggleCategoryVisibility(categoryId) {
+            var category = document.getElementById(categoryId);
+            if (category.style.display === 'none' || category.style.display === '') {
+                category.style.display = 'block';
+            } else {
+                category.style.display = 'none';
+            }
+        }
+      
+
+        let currentTab = null;
+
+        function openTab(tabId) {
+    // If the same button is pressed, hide the tab
+    if (currentTab === tabId) {
+        document.getElementById(tabId).style.display = 'none';
+        currentTab = null;
+    } else if (tabId === 'checkCartButton') {
+        loadCartFromLocalStorage();
+    
+    } else {
+        // Hide all tabs
+        const tabs = document.getElementsByClassName('tab');
+        for (let i = 0; i < tabs.length; i++) {
+            tabs[i].style.display = 'none';
+        }
+
+        // Show the selected tab
+        const tab = document.getElementById(tabId);
+        tab.style.display = 'block';
+        currentTab = tabId;
+    }
+}
+function redirectToLocalStorage() {
+            try {
+                window.location.href = "LOCALSTORAGE.html";
+            } catch (error) {
+                console.log("An error occurred while redirecting to local storage: " + error.message);
+            }
+        }
+        
+        function loadCart() {
+        fetch("CHECKSHOPPINGCART.php")
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            return response.text();
+        })
+        .then(result => {
+            document.getElementById('cartContents').innerHTML = result;
+        })
+        .catch(error => {
+            console.error('An error occurred while loading the cart:', error);
+            document.getElementById('cartContents').innerHTML = 'An error occurred while loading the cart.';
+            document.getElementById('cartTotal').innerHTML = '';
+        });
+    }
+
+    function loadCartFromLocalStorage() {
+        const cartData = localStorage.getItem('cartData');
+        if (cartData) {
+            const cart = JSON.parse(cartData);
+            const cartBody = document.getElementById('cartBody');
+            cartBody.innerHTML = '';
+
+            for (const item in cart.cart) {
+                const quantity = cart.cart[item];
+                const totalPrice = quantity * cart.totalPrice;
+                const row = `
+                    <tr>
+                        <td><td>${item}</td>
+                        <td>${quantity}</td>
+                        <td>$${totalPrice.toFixed(2)}</td>
+                        </tr>`;
+                cartBody.innerHTML += row;
+            }
+            document.getElementById('cartTotal').innerHTML = `$${cart.totalPrice.toFixed(2)}`;
+        }
+
+        // After loading cart data from local storage, redirect to GROCERYSHOP.html
+        window.location.href = 'GROCERYSHOP.html';
+    }
+
+    window.onload = function() {
+        loadCart();
+        loadCartFromLocalStorage();
+    }
+
+    
+</script>
+</body>
+</html>
+
+

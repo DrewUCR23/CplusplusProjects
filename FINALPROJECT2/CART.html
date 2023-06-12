@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Drew's Online Grocery Store</title>
+   <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="script.js"></script>
+</head>
+<body onload="loadCart()">
+    <header>
+        <h1>Drew's Online Grocery Store</h1>
+    </header>
+
+    <main>
+        <div class="button-container">
+            <button onclick="location.href='groceryshop.html'">Home</button>
+            <button onclick="openTab('login')">Login</button>
+            <button onclick="openTab('register')">Register</button>
+            <button onclick="openTab('changePassword')">Change Password</button>
+            <button onclick="openTab('admin');">Admin Sign</button>
+            <button onclick="openTab('Admin Register')">Admin Register</button>
+            <button onclick="openTab('cart')">Check Cart</button>
+            <button onclick="openTab('receipt')">Receipt</button>
+            <button onclick="openTab('menu')">Menu</button>
+        </div>
+
+        <div class="cart-container">
+            <h2>Your Shopping Cart</h2>
+            <table id="cartTable">
+                <thead>
+                    <tr>
+                        <th>Item Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody id="cartBody">
+                    <!-- Items will be added here dynamically -->
+                </tbody>
+            </table>
+            <div id="cartContents">
+                <!-- Cart data will be displayed here -->
+            </div>
+            <div id="cartTotal">
+                <!-- Total price will be displayed here -->
+            </div>
+        </div>
+
+    </main>
+    <script>
+   async function loadCart() {
+    try {
+        const response = await fetch("CHECKSHOPPINGCART.php");
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const result = await response.text();  // Changed from response.json()
+
+        if (!result) {
+            throw new Error('Unexpected response format from CHECKSHOPPINGCART.php');
+        }
+
+        // Use this data to update the HTML of your cart.
+        document.getElementById('cartContents').innerHTML = result;
+
+        // If the response also contains the total price, you can parse and display it like this:
+        // const totalPrice = parseFloat(result.match(/Total: \$([0-9\.]+)/)[1]);
+        // document.getElementById('cartTotal').innerHTML = `Total: $${totalPrice.toFixed(2)}`;
+
+    } catch (error) {
+        console.error('An error occurred while loading the cart:', error);
+
+        // Optionally display an error message on the page
+        document.getElementById('cartContents').innerHTML = 'An error occurred while loading the cart.';
+        document.getElementById('cartTotal').innerHTML = '';
+    }
+}
+
+window.onload = loadCart;
+
+    </script> 
+
+</body>
+</html>

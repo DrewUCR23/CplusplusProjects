@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="LOCALSTORAGESTYLE.css">
+
+    <title>Local Storage Example</title>
+</head>
+<body>
+    <header>
+        <h1>Local Storage Example</h1>
+        <p id="storedValue"></p>
+    </header>
+    <main>
+        <button onclick="storeData()">Store Data</button>
+        <button onclick="goToHomePage()">HOME</button>
+    </main>
+    <footer>
+        <p>Footer content</p>
+    </footer>
+    <script>
+    function storeData() {
+        var key = "username";
+        var value = "John Doe";
+
+        try {
+            localStorage.setItem(key, value);
+            var storedValue = localStorage.getItem(key);
+            document.getElementById("storedValue").textContent = "Stored value: " + storedValue;
+        } catch (e) {
+            console.error("Accessing local storage failed:", e);
+        }
+    }
+
+    function goToHomePage() {
+        window.location.href = "GROCERYSHOP.html";
+    }
+
+    function updateLocalStorageWithCart(data) {
+        localStorage.setItem('cart', JSON.stringify(data));
+    }
+
+    function addToCart(itemName, quantity) {
+        fetch('CHECKSHOPPINGCART.PHP', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ [itemName]: quantity }), 
+        })
+        .then(response => response.json())
+        .then(data => {
+            updateLocalStorageWithCart(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+</body>
+</html>

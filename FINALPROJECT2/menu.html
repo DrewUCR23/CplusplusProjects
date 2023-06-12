@@ -1,0 +1,76 @@
+<form method="POST" action="CHECKSHOPPINGCART.PHP">
+    <input type="hidden" name="action" value="addToCartButton">
+    <h3 onclick="toggleCategoryVisibility('fruits')"> Fruits</h3>
+    <div id="fruits" style="display: none;">
+        <label for="apple"> Apples ($2.00 each)</label>
+        <input type="number" id="apple" name="apple" min="0" max="40"><br>
+        <label for="orange"> Oranges ($2.25 each)</label>
+        <input type="number" id="orange" name="orange" min="0" max="50"><br>
+        <label for="banana">Bananas ($3.00 each)</label>
+        <input type="number" id="banana" name="banana" min="0" max="60"><br>
+        <label for="grapes"> Grapes ($2.50 each)</label>
+        <input type="number" id="grapes" name="grapes" min="0" max="60"><br>
+        <label for="pear"> Pears ($3.50 each)</label>
+        <input type="number" id="pear" name="pear" min="0" max="60"><br>
+    </div>
+    <h3 onclick="toggleCategoryVisibility('drinks')"> Drinks</h3>
+    <div id="drinks" style="display: none;">
+    <label for="soda">Soda ($1.50 each)</label>
+        <input type="number" id="soda" name="soda" min="0" max="25"><br>
+        <label for="juice"> Juice ($2.00 each)</label>
+        <input type="number" id="juice" name="juice" min="0" max="25"><br>
+        <label for="water"> Water ($1.00 each)</label>
+        <input type="number" id="water" name="water" min="0" max="25"><br>
+        <label for="coffee"> Coffee ($2.50 each)</label>
+        <input type="number" id="coffee" name="coffee" min="0" max="25"><br>
+        <label for="tea"> Tea ($2.00 each)</label>
+        <input type="number" id="tea" name="tea" min="0" max="25"><br>
+    </div>
+    <h3 onclick="toggleCategoryVisibility('meats')"> Meats</h3>
+    <div id="meats" style="display: none;">
+    <label for="ham"> Ham ($1.25 each)</label>
+        <input type="number" id="ham" name="ham" min="0" max="20"><br>
+        <label for="turkey"> Turkey ($6.75 each)</label>
+        <input type="number" id="turkey" name="turkey" min="0" max="15"><br>
+        <label for="chicken"> Chicken ($5.50 each)</label>
+        <input type="number" id="chicken" name="chicken" min="0" max="15"><br>
+        <label for="beef"> Beef ($7.00 each)</label>
+        <input type="number" id="beef" name="beef" min="0" max="15"><br>
+        <label for="pork"> Pork ($6.50 each)</label>
+        <input type="number" id="pork" name="pork" min="0" max="15"><br>
+    </div>
+    <h3 onclick="toggleCategoryVisibility('dairy')"> Dairy</h3>        
+    <div id="dairy" style="display: none;">
+        <label for="eggs"> Eggs ($7.50 each)</label>
+        <input type="number" id="eggs" name="eggs" min="0" max="10"><br>
+        <label for="milk"> Milk ($2.50 each)</label>
+        <input type="number" id="milk" name="milk" min="0" max="10"><br>
+        <label for="cheese"> Cheese ($5.00 each)</label>
+        <input type="number" id="cheese" name="cheese" min="0" max="10"><br>
+        <label for="yogurt"> Yogurt ($3.00 each)</label>
+        <input type="number" id="yogurt" name="yogurt" min="0" max="10"><br>
+        <label for="butter">Butter ($4.00 each)</label>
+        <input type="number" id="butter" name="butter" min="0" max="10"><br>
+    </div>
+    <h3 onclick="toggleCategoryVisibility('desserts')"> Desserts</h3>
+    <div id="desserts" style="display: none;">
+    <label for="icecream"> Ice cream ($1.25 each)</label>
+        <input type="number" id="icecream" name="icecream" min="0" max="10"><br>
+        <label for="cake"> Cake ($4.00 each)</label>
+        <input type="number" id="cake" name="cake" min="0" max="10"><br>
+        <label for="cookies">Cookies ($3.50 each)</label>
+        <input type="number" id="cookies" name="cookies" min="0" max="10"><br>
+        <label for="donuts"> Donuts ($2.00 each)</label>
+        <input type="number" id="donuts" name="donuts" min="0" max="10"><br>
+        <label for="chocolate">Chocolate ($3.00 each)</label>
+        <input type="number" id="chocolate" name="chocolate" min="0" max="10"><br>
+    </div>
+    <input type="hidden" name="userNumber" value="8"> <!-- Adjust this to the correct user number -->
+    <button type="submit"id="addToCartButton" style="background-color: green; color: white; cursor: pointer; border-radius: 5px;">Add to Cart</button>
+   </form>
+   
+   <form method="POST" action="CHECKSHOPPINGCART.PHP">
+   <input type="hidden" name="userNumber" value="10">
+   <button type="submit" style="background-color: green; color: white; cursor: pointer; border-radius: 5px;">Submit Order</button>
+   </form>
+   

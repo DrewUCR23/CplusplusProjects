@@ -1,0 +1,195 @@
+#menu {
+    display: none;
+}
+#menu.logged-in {
+    display: block;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #008080;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+header p {
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+}
+
+main {
+    padding: 20px;
+}
+
+.tab {
+    display: none;
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+.tab.active {
+    display: block;
+}
+.submenu {
+    display: none;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+.tab h2 {
+    margin-top: 0;
+}
+
+.tab label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    background-color: #f5f5f5;
+}
+
+.tab input[type=text], .tab input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+}
+.tab input[type=submit] {
+    display: block;
+    padding: 10px;
+    border: none;
+    background-color: #008080;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.tab input[type=submit]:hover {
+    background-color: #006666;
+}
+
+footer {
+    background-color: #008080;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+button {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #008080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #006666;
+}
+
+.submenu {
+    display: none;
+}
+
+.tab {
+    display: none;
+}
+
+.admin-options {
+    display: none;
+}
+
+button, .tab input[type=submit] {
+    display: block;
+    padding: 10px;
+    border: none;
+    background-color: #008080;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover, .tab input[type=submit]:hover {
+    background-color: #006666;
+}
+
+.myButton {
+    display: block;
+    padding: 10px;
+    border: none;
+    background-color: #008080;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.myButton:hover {
+    background-color: #006666;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#menu {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+}
+
+#menu h2 {
+    margin-top: 0;s
+    color: #008080;
+}
+
+#menu h3 {
+    color: #008080;
+    cursor: pointer;
+}
+
+#menu h3:hover {
+    color: #006666;
+}
+
+#menu label {
+    display: block;
+    color: #555555;
+}
+
+#menu input[type=number] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+ 
+

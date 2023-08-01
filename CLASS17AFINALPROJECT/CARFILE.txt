@@ -1,0 +1,55 @@
+These are the following types of cars:
+
+1. **Sedan**: A traditional style with two rows of seats and a three-box configuration with separate compartments for the engine, passenger, and cargo.
+   
+2. **Coupe**: A car with a fixed-roof, usually with two doors, and a sportier appearance than a sedan.
+   
+3. **SUV (Sport Utility Vehicle)**: A larger vehicle designed for off-roading capabilities, but also used for city and highway driving. It typically has a high seating position and spacious interior.
+   
+4. **Hatchback**: A car with a rear door that opens upwards to provide access to a cargo area.
+   
+5. **Convertible**: A vehicle with a roof structure that can 'convert' and fold away, turning it into an open-air vehicle.
+   
+6. **Station Wagon**: A car with a body style that extends the roofline and incorporates a large rear cargo area accessed via a liftgate.
+   
+7. **Pick-up Truck**: A light-duty truck having an enclosed cab and an open cargo area with low sides and tailgate.
+   
+8. **Minivan**: A vehicle designed for personal use with a spacious interior and typically has three rows of seats with sliding side doors.
+   
+9. **Sports Car**: A car designed with an emphasis on dynamic performance, such as handling, acceleration, top speed, or thrill of driving.
+   
+10. **Electric Vehicle (EV)**: A vehicle propelled by one or more electric motors, powered by a battery.
+
+---
+These are the average price rates for cars in the US:
+
+(Note: Prices can vary greatly based on make, model, year, condition, and other factors. These are rough averages as of 2023.)
+
+1. **Sedan**: $25,000 - $40,000
+2. **Coupe**: $30,000 - $50,000
+3. **SUV**: $30,000 - $60,000
+4. **Hatchback**: $20,000 - $30,000
+5. **Convertible**: $35,000 - $80,000
+6. **Station Wagon**: $25,000 - $40,000
+7. **Pick-up Truck**: $30,000 - $50,000
+8. **Minivan**: $30,000 - $45,000
+9. **Sports Car**: $60,000 - $150,000
+10. **Electric Vehicle (EV)**: $35,000 - $70,000
+
+This is the typical engine types for a car:
+
+1. **Internal Combustion Engine (ICE)**: This is the traditional type of car engine, which burns fuel (like petrol or diesel) in the engine's combustion chamber to produce power.
+
+2. **Hybrid Engines**: These cars use both an internal combustion engine and an electric motor. The battery for the electric motor recharges itself through regenerative braking and the internal combustion engine.
+
+3. **Electric Motors**: Used in electric vehicles (EVs), these use electrical energy stored in rechargeable batteries or another energy storage device.
+
+4. **Turbocharged Engines**: These are internal combustion engines that use a turbine to force more air, and thus more oxygen, into the combustion chamber, increasing power and efficiency.
+
+5. **Supercharged Engines**: These are similar to turbocharged engines, but a supercharger is driven by the engine's crankshaft rather than exhaust gases. 
+
+6. **Hydrogen Fuel Cells**: These convert hydrogen and oxygen into electricity, which then powers an electric motor. This type of engine is still quite rare but is growing in the automotive industry.
+
+Remember, the type of engine can
+
+ have a significant impact on performance, fuel efficiency, and cost of the vehicle.
